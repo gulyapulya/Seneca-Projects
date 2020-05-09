@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEB222 Store</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <!--
+      Part 1: Main Store Page
+
+      Requirements:
+
+      1. Header across the top must include your store's name, a logo,
+      and use a different background colour, web font, etc.  You must also include
+      a link to your contact.html page.  Your header should include info about
+      what the store is, what it sells, etc.  Use some images to try and draw
+      the user in.  NOTE: place all your site's images in the `src/images/` directory.
+      2. Below the header, a multi-column layout of items you can purchase in the
+      store.  You must have at least 10 items in your store, and at least 2
+      categories of items. For example, if you are selling clothing, you might
+      have categories for Men, Women, and Children, and each category would have
+      its own set of items.  Each item should include:
+      
+        - a picture
+        - the item's name/title
+        - a more complete description of the item
+        - a category (i.e., each item must belong to a category)
+        - a price.
+      
+      Each item should be its own "card" (i.e., some kind of box around each item
+      separating one from the next, with suitable whitespace between).
+
+      3. A sidebar (left or right, depending on your design) of the item layout
+      section, showing the different categories of items in your store.  If a
+      user clicks on one of the categories, use CSS and JavaScript to hide all
+      other items in the store (i.e., only show items for the chosen category).
+      Make sure you include a way to return to seeing all categories, and make it
+      obvious to the user that they are only seeing a partial list of items when
+      you filter by category (i.e., use CSS and HTML to change things somehow).
+
+      4. Below the items, a footer with the name of the store, any relevant links you
+      need to give users, as well as a small HTML form for entering an Email
+      address and clicking a "Subscribe" button to subscribe to the store's
+      newsletter. Use https://formspree.io/ to automatically submit the form to
+      your email address (i.e., when a user fills out their email address and
+      clicks submit, *you* should get that information sent to your email
+      address via formspree.io).  Make sure you setup your account on
+      https://formspree.io/.
+
+      5. Use two different Web Fonts for your store.  The titles should be different
+      from any regular text.  Use a free font service like https://fonts.google.com/
+      or any other that you choose.  You can also experiment with different font
+      sizes and colours to draw attention toward or away from various parts of
+      your design.
+
+      6. Pick a colour theme using a tool like https://colorhunt.co/ with at least
+      3 colours (primary, secondary, accent), and use them throughout your site
+      for backgrounds, borders, fonts. Your store page needs to look attractive
+      and marks will be given for good a good looking site.  No one will buy from
+      a store that looks like its owners aren't professional or don't care about
+      details.  Also make sure that the colour contrast in your site is suitable
+      for everyone to read.
+
+      7. Use modern CSS to help you achieve your layout.  For example, Flexbox
+      and CSS Grid can help you create professional looking layouts.  Here
+      are some guides to get you started:
+
+       - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+       - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
+       
+      You are also welcome to use existing CSS libraries to help you with your layout,
+      but you must also include your own styles (i.e., you can't use a library
+      for everything in your design).
+
+      8. Make sure you don't use copyrighted materials from other sites.  If you use
+      icons, fonts, images, etc., make sure you are legally permitted to reuse them,
+      and include references to indicate where you got them. Some resources to consider:
+
+        - https://unsplash.com/ for images
+        - https://fontawesome.com/ for icons
+        - https://gallery.manypixels.co/ or https://undraw.co/illustrations for illustrations (SVG)
+
+      9. Make sure you reduce the download size of images you include in your
+      store.  Users don't want to download 10s or 100s of megabytes of data, especially
+      on mobile.  You can use an online tool like https://squoosh.app/ to help you
+      reduce images.  You will lose marks if your images aren't optimized for the web.
+       
+
+      10. Make sure you have no JavaScript or other errors in your Dev Tools Console.
+      Run your site, and test all aspects of it with the Console open, and fix
+      any issues you encounter.
+
+      11. Make sure your forms all work as they should, testing them yourself,
+      and also have someone else test it for you.  The easiest way to find bugs
+      in software is to let someone who didn't build it try to use it!
+    -->
+    <div class="site-wrap">
+      <div class="site-navbar py-2">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="logo">
+              <div class="site-logo">
+                <a href="index.html" class="js-logo-clone">Flowers Shop</a>
+              </div>
+            </div>
+            <div class="main-nav">
+              <nav
+                class="site-navigation text-right text-md-center"
+                role="navigation"
+              >
+                <ul class="site-menu js-clone-nav">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="shop.html">Shop</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="custom-border-bottom py-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mb-0">
+              <a href="index.html">Home</a> <span class="mx-2 mb-0">/</span>
+              <strong class="text-black">Shop</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section">
+        <div class="container">
+          <div class="row mb-5">
+            <div
+              class=".d-sm-none d-md-none d-lg-none d-xl-none col-md-3 order-1 mb-5 mb-md-0"
+            >
+              <div class="border p-4 rounded mb-4">
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">
+                  Categories
+                </h3>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-1">
+                    <a href="#" class="d-flex" onclick="showRoses()"
+                      ><span>Roses</span></a
+                    >
+                  </li>
+                  <li class="mb-1">
+                    <a href="#" class="d-flex" onclick="showBouquets()"
+                      ><span>Bouquets</span></a
+                    >
+                  </li>
+                  <li class="mb-1">
+                    <a href="#" class="d-flex" onclick="showAll()"
+                      ><span>All</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-9 order-2">
+              <div class="row align">
+                <div class="col-md-12 mb-5">
+                  <div class="float-md-left">
+                    <h2 class="text-black h5">Shop All</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <div
+                  class="col-lg-6 col-md-6 item-entry mb-4 roses"
+                  style="display:block"
+                >
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img
+                      src="images/roses-red.png"
+                      alt="Image"
+                      class="img-fluid"
+                    />
+                  </a>
+                  <h2 class="item-title"><a href="#">Red roses</a></h2>
+                  <h2 class="item-descrip">
+                    <a href="#"
+                      >Price is indicated for one rose with the design
+                      package.<br />5 roses: discount 5%<br />10 roses: discount
+                      10%<br />20 roses: discount 20%<br />50 roses: discount
+                      30%<br
+                    /></a>
+                  </h2>
+                  <h2 class="item-category"><a href="#">Category: Roses</a></h2>
+                  <strong class="item-price">$7.00</strong>
+                </div>
+                <div
+                  class="col-lg-6 col-md-6 item-entry mb-4 roses"
+                  style="display:block"
+                >
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img
+                      src="images/roses-pink.png"
+                      alt="Image"
+                      class="img-fluid"
+                    />
+                  </a>
+                  <h2 class="item-title"><a href="#">Pink roses</a></h2>
+                  <h2 class="item-descrip">
+                    <a href="#"
+                      >Price is indicated for one rose with the design
+                      package.<br />5 roses: discount 5%<br />10 roses: discount
+                      10%<br />20 roses: discount 20%<br />50 roses: discount
+                      30%<br
+                    /></a>
+                  </h2>
+                  <h2 class="item-category"><a href="#">Category: Roses</a></h2>
+                  <strong class="item-price">$7.00</strong>
+                </div>
+                <div
+                  class="col-lg-6 col-md-6 item-entry mb-4 roses"
+                  style="display:block"
+                >
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img
+                      src="images/roses-yellow.png"
+                      alt="Image"
+                      class="img-fluid"
+                    />
+                  </a>
+                  <h2 class="item-title"><a href="#">Yellow roses</a></h2>
+                  <h2 class="item-descrip">
+                    <a href="#"
+                      >Price is indicated for one rose with the design
+                      package.<br />5 roses: discount 5%<br />10 roses: discount
+                      10%<br />20 roses: discount 20%<br />50 roses: discount
+                      30%<br
+                    /></a>
+                  </h2>
+                  <h2 class="item-category"><a href="#">Category: Roses</a></h2>
+                  <strong class="item-price">$5.00</strong>
+                </div>
+                <div
+                  class="col-lg-6 col-md-6 item-entry mb-4 roses"
+                  style="display:block"
+                >
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img
+                      src="images/roses-white.png"
+                      alt="Image"
+                      class="img-fluid"
+                    />
+                  </a>
+                  <h2 class="item-title"><a href="#">White roses</a></h2>
+                  <h2 class="item-descrip">
+                    <a href="#"
+                      >Price is indicated for one rose with the design
+                      package.<br />5 roses: discount 5%<br />10 roses: discount
+                      10%<br />20 roses: discount 20%<br />50 roses: discount
+                      30%<br
+                    /></a>
+                  </h2>
+                  <h2 class="item-category"><a href="#">Category: Roses</a></h2>
+                  <strong class="item-price">$9.00</strong>
+                </div>
+                <div
+                  class="col-lg-6 col-md-6 item-entry mb-4 roses"
+                  style="display:block"
+                >
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img
+                      src="images/roses-rainbow.png"
+                      alt="Image"
+                      class="img-fluid"
+                    />
+                  </a>
+                  <h2 class="item-title"><a href="#">Rainbow roses</a></h2>
+                  <h2 class="item-descrip">
+                    <a href="#"
+                      >Price is indicated for one rose with the design
+                      package.<br />5 roses: discount 5%<br />10 roses: discount
+                      10%<br />20 roses: discount 20%<br />50 roses: discount
+                      30%<br
+                    /></a>
+                  </h2>
+                  <h2 class="item-category"><a href="#">Category: Roses</a></h2>
+                  <strong class="item-price">$12.00</strong>
+                </div>
+                <div
+                  class="col-lg-6 col-md-6 item-entry mb-4 bouquets"
+                  style="display:block"
+                >
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img
+                      src="images/bouquet-1.png"
+                      alt="Image"
+                      class="img-fluid"
+                    />
+                  </a>
+                  <h2 class="item-title"><a href="#">Lilac Bouquet</a></h2>
+                  <h2 class="item-descrip">
+                    <a href="#"
+                      >The price depends on the size:<br />Small - $30.00<br />Medium
+                      - $50.00<br />Luxury - $80.00<br
+                    /></a>
+                  </h2>
+                  <h2 class="item-category">
+                    <a href="#">Category: Bouquets</a>
+                  </h2>
+                  <strong class="item-price">$30.00</strong>
+                </div>
+                <div
+                  class="col-lg-6 col-md-6 item-entry mb-4 bouquets"
+                  style="display:block"
+                >
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img
+                      src="images/bouquet-2.png"
+                      alt="Image"
+                      class="img-fluid"
+                    />
+                  </a>
+                  <h2 class="item-title"><a href="#">EveSky Bouquet</a></h2>
+                  <h2 class="item-descrip">
+                    <a href="#"
+                      >The price depends on the size:<br />Small - $20.00<br />Medium
+                      - $40.00<br />Luxury - $70.00<br
+                    /></a>
+                  </h2>
+                  <h2 class="item-category">
+                    <a href="#">Category: Bouquets</a>
+                  </h2>
+                  <strong class="item-price">$20.00</strong>
+                </div>
+                <div
+                  class="col-lg-6 col-md-6 item-entry mb-4 bouquets"
+                  style="display:block"
+                >
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img
+                      src="images/bouquet-3.png"
+                      alt="Image"
+                      class="img-fluid"
+                    />
+                  </a>
+                  <h2 class="item-title"><a href="#">Love Bouquet</a></h2>
+                  <h2 class="item-descrip">
+                    <a href="#"
+                      >The price depends on the size:<br />Small - $40.00<br />Medium
+                      - $60.00<br />Luxury - $90.00<br
+                    /></a>
+                  </h2>
+                  <h2 class="item-category">
+                    <a href="#">Category: Bouquets</a>
+                  </h2>
+                  <strong class="item-price">$40.00</strong>
+                </div>
+                <div
+                  class="col-lg-6 col-md-6 item-entry mb-4 bouquets"
+                  style="display:block"
+                >
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img
+                      src="images/bouquet-4.png"
+                      alt="Image"
+                      class="img-fluid"
+                    />
+                  </a>
+                  <h2 class="item-title"><a href="#">Swan Bouquet</a></h2>
+                  <h2 class="item-descrip">
+                    <a href="#"
+                      >The price depends on the size:<br />Small - $20.00<br />Medium
+                      - $40.00<br />Luxury - $70.00<br
+                    /></a>
+                  </h2>
+                  <h2 class="item-category">
+                    <a href="#">Category: Bouquets</a>
+                  </h2>
+                  <strong class="item-price">$20.00</strong>
+                </div>
+                <div
+                  class="col-lg-6 col-md-6 item-entry mb-4 bouquets"
+                  style="display:block"
+                >
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img
+                      src="images/bouquet-5.png"
+                      alt="Image"
+                      class="img-fluid"
+                    />
+                  </a>
+                  <h2 class="item-title"><a href="#">Butterfly Bouquet</a></h2>
+                  <h2 class="item-descrip">
+                    <a href="#"
+                      >The price depends on the size:<br />Small - $50.00<br />Medium
+                      - $70.00<br />Luxury - $100.00<br
+                    /></a>
+                  </h2>
+                  <h2 class="item-category">
+                    <a href="#">Category: Bouquets</a>
+                  </h2>
+                  <strong class="item-price">$50.00</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-none d-sm-block col-md-3 order-3 mb-5 mb-md-0">
+              <div class="border p-4 rounded mb-4">
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">
+                  Categories
+                </h3>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-1">
+                    <a href="#" class="d-flex" onclick="showRoses()"
+                      ><span>Roses</span></a
+                    >
+                  </li>
+                  <li class="mb-1">
+                    <a href="#" class="d-flex" onclick="showBouquets()"
+                      ><span>Bouquets</span></a
+                    >
+                  </li>
+                  <li class="mb-1">
+                    <a href="#" class="d-flex" onclick="showAll()"
+                      ><span>All</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer custom-border-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+              <div class="block-5 mb-5">
+                <h3 class="footer-heading mb-4">Contact Info</h3>
+                <ul class="list-unstyled">
+                  <li class="address">
+                    500 Doris Ave, Toronto, Canada, M2N0C1
+                  </li>
+                  <li class="phone">
+                    <a href="tel://16477799091">+1(647)-779-9091</a>
+                  </li>
+                  <li class="email">gulnur2703@gmail.com</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+              <div class="block-5 mb-5">
+                <h3 class="footer-heading" align="center">
+                  All prices are shown in Canadian dollars.
+                </h3>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="block-7">
+                <form action="https://formspree.io/xlewpnre" method="POST">
+                  <label for="email_subscribe" class="footer-heading"
+                    >Subscribe</label
+                  >
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control py-4"
+                      name="email"
+                      id="email_subscribe"
+                      placeholder="Email"
+                    />
+                    <input
+                      type="submit"
+                      class="btn btn-sm btn-primary"
+                      value="Send"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+              <p>
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                All rights reserved | This website was made by Baimukhambetova
+                Gulnur
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEB222 Store</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <!--    
+
+    Part 2: Contact Us Page
+
+    Requirements:
+
+    1. Use the same header/footer, colours, fonts, etc. as your index.html page.
+    It should be obvious to the user they they are still on the same site, and that
+    contact.html is part of your store.
+
+
+    2. Include an HTML Form for the user to fill out his or her information along
+    with their message to you. Your form should including the following, and all
+    fields should be mandatory unless otherwise noted, and use the most appropriate <input> type:
+    
+        - First Name
+        - Last Name
+        - Email Address
+        - Address
+        - City (use a <datalist> for autocomplete of common Canadian cities)
+        - Phone Number (must be a valid Canadian Phone Number, use regex)
+        - Postal Code (must be a valid Canadian Postal Code, use regex)
+        - Checkbox Option to be phoned ("Would you like to be phoned?")
+        - Radio Options to specify what this is about: one of "Question",
+          "Comment", or "Order Problem". If the user selects "Order Problem",
+          dynamically reveal another input box to enter the order number. In the
+          case of "Comment" or "Question" hide this input box.
+        - A large area to enter the message that they want to send
+        - A hidden input field with your name
+
+    3. The form should submit to https://httpbin.org/post using the POST method,
+    and only allow the user to submit when all data has been entered and there
+    aren't any validation errors.  The data posted to httpbin.org should include
+    all data defined in the form above (e.g., visible and hidden fields).
+
+  -->
+    <div class="site-wrap">
+      <div class="site-navbar py-2">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="logo">
+              <div class="site-logo">
+                <a href="index.html" class="js-logo-clone">Flowers Shop</a>
+              </div>
+            </div>
+            <div class="main-nav">
+              <nav
+                class="site-navigation text-right text-md-center"
+                role="navigation"
+              >
+                <ul class="site-menu js-clone-nav">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="shop.html">Shop</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="custom-border-bottom py-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mb-0">
+              <a href="index.html">Home</a> <span class="mx-2 mb-0">/</span>
+              <strong class="text-black">Contact</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background-image: url('images/background.jpeg')">
+      <div class="site-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="h3 mb-3 text-black">Get In Touch</h2>
+            </div>
+            <div class="col-md-12 form">
+              <form
+                name="Form1"
+                action="https://httpbin.org/post"
+                method="POST"
+                onsubmit="return validate(); "
+                style="background-color: rgb(0,0,0); background-color: rgba(191,63,101, 0.4);"
+              >
+                <div class="p-3 p-lg-5 border">
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label for="fName" class="text-black"
+                        >First Name <span class="text-danger">*</span></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        class="form-control"
+                        name="fName"
+                        id="fName"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="lName" class="text-black"
+                        >Last Name <span class="text-danger">*</span></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        class="form-control"
+                        name="lName"
+                        id="lName"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label for="email" class="text-black"
+                        >Email <span class="text-danger">*</span></label
+                      >
+                      <input
+                        required
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        id="email"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="phone" class="text-black"
+                        >Phone Number <span class="text-danger">*</span></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        class="form-control"
+                        name="phone"
+                        id="phone"
+                        placeholder="+14165314219"
+                        pattern="^\+1[0-9]{10}$"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label for="address" class="text-black"
+                        >Address <span class="text-danger">*</span></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        class="form-control"
+                        name="address"
+                        id="address"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <br />&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        name="phoned"
+                        id="phoned-yes"
+                        value="yes"
+                        checked
+                      />
+                      <label class="form-check-label text-black" for="phoned"
+                        >I want to be phoned</label
+                      >
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label for="postalCode" class="text-black"
+                        >Postal Code <span class="text-danger">*</span></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        class="form-control"
+                        name="postalCode"
+                        id="postalCode"
+                        placeholder="M2N3H5"
+                        pattern="^[0-9A-Z]{6}$"
+                      />
+                    </div>
+                    <div class="col-md-6 form-check">
+                      <label for="city" class="text-black"
+                        >City <span class="text-danger">*</span></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        class="form-control"
+                        name="city"
+                        id="city"
+                        list="cities"
+                      />
+                      <datalist id="cities">
+                        <option value="Toronto"> </option>
+                        <option value="Montreal"> </option>
+                        <option value="Vancouver"> </option>
+                        <option value="Quebec"> </option>
+                      </datalist>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <label for="purpose" class="text-black"
+                        >What is it about?
+                        <span class="text-danger">*</span></label
+                      >
+                      <ul>
+                        <li>
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="purpose"
+                            id="purpose-1"
+                            onclick="orderPrCheck();"
+                            value="Question"
+                            checked
+                          />
+                          <label
+                            class="form-check-label text-black"
+                            for="purpose-1"
+                          >
+                            Question</label
+                          >
+                        </li>
+                        <li>
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="purpose"
+                            id="purpose-2"
+                            onclick="orderPrCheck();"
+                            value="Comment"
+                          />
+                          <label
+                            class="form-check-label text-black"
+                            for="purpose-2"
+                          >
+                            Comment</label
+                          >
+                        </li>
+                        <li>
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="purpose"
+                            id="purpose-3"
+                            onclick="orderPrCheck();"
+                            value="Order Problem"
+                          />
+                          <label
+                            class="form-check-label text-black"
+                            for="purpose-3"
+                          >
+                            Order Problem</label
+                          >
+                          <div id="reveal-if-checked" style="display:none">
+                            <label class="text-black" for="orderNum"
+                              >Order Number<span class="text-danger"
+                                >*</span
+                              ></label
+                            >
+                            <input
+                              class="form-control"
+                              type="text"
+                              name="orderNum"
+                              id="orderNum"
+                            />
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <label for="c_message" class="text-black"
+                        >Message <span class="text-danger">*</span></label
+                      >
+                      <textarea
+                        required
+                        name="c_message"
+                        id="c_message"
+                        cols="30"
+                        rows="7"
+                        class="form-control"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-lg-6">
+                      <input
+                        type="submit"
+                        class="btn btn-primary btn-lg btn-block"
+                        value="Send Message"
+                      />
+                    </div>
+                    <div class="col-lg-6">
+                      <input
+                        type="reset"
+                        class="btn btn-primary btn-lg btn-block"
+                        value="    Clear   "
+                        onclick="clear()"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="site-footer custom-border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="block-5 mb-5">
+              <h3 class="footer-heading mb-4">Contact Info</h3>
+              <ul class="list-unstyled">
+                <li class="address">500 Doris Ave, Toronto, Canada, M2N0C1</li>
+                <li class="phone">
+                  <a href="tel://16477799091">+1(647)-779-9091</a>
+                </li>
+                <li class="email">gulnur2703@gmail.com</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="block-5 mb-5">
+              <h3 class="footer-heading" align="center">
+                All prices are shown in Canadian dollars.
+              </h3>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="block-7">
+              <form action="https://formspree.io/xlewpnre" method="POST">
+                <label for="email_subscribe" class="footer-heading"
+                  >Subscribe</label
+                >
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control py-4"
+                    name="email"
+                    id="email_subscribe"
+                    placeholder="Email"
+                  />
+                  <input
+                    type="submit"
+                    class="btn btn-sm btn-primary"
+                    value="Send"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p>
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              All rights reserved | This website was made by Baimukhambetova
+              Gulnur
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
