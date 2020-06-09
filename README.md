@@ -9,7 +9,7 @@
 
   C++ program to connect to the Employee database, check information, make changes and save them interactively using MySQL library and structures.
   
-- ### Parking Interactive Program	Renaming
+- ### Parking Interactive Program	
 
   C++ practice project to represent the parking process of finding a parking lot, leaving different types of vehicles such as cars and motorcycles and getting a vehicle back using classes, references, overloading, virtual functions and etc.
 
